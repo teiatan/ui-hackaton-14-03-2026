@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import capsuleLogo from '../assets/CAPSULE.svg'
 
 function PricingPage() {
   const plans = [
@@ -42,7 +43,7 @@ function PricingPage() {
         ×
       </Link>
 
-      <p className="pricing-brand">CAPSULE</p>
+      <img className="pricing-brand" src={capsuleLogo} alt="CAPSULE" />
       <h1 className="pricing-title">Choose your plan</h1>
       <p className="pricing-subtitle">Unlock your personal AI stylist</p>
 

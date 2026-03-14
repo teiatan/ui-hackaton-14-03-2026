@@ -1,7 +1,7 @@
 body {
   margin: 0;
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
-  background: #0d0f17;
+  background: #161618;
   color: #ececf1;
 }
 
@@ -18,13 +18,13 @@ main {
   width: 100%;
   max-width: 1440px;
   margin: 0 auto;
-  background: #0d0f17;
+  background: #161618;
 }
 
 .landing {
   min-height: 1700px;
   margin: 0;
-  background: #0d0f17;
+  background: #161618;
   color: #ececf1;
   padding: 22px 44px 48px;
   box-sizing: border-box;
@@ -191,7 +191,7 @@ main {
   font-size: 34px;
   line-height: 1;
   color: #f3f4f6;
-  background: #0d0f17;
+  background: #161618;
   z-index: 1;
 }
 
@@ -213,7 +213,7 @@ main {
 
 .landing-features {
   width: 100%;
-  margin-top: 280px;
+  margin-top: 120px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -287,7 +287,7 @@ main {
   border: 1px solid #8d93a0;
   border-radius: 26px;
   overflow: hidden;
-  background: #0d0f17;
+  background: #161618;
 }
 
 .stylist-card-header {
@@ -508,10 +508,9 @@ main {
 
 .footer-brand {
   margin: 0;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 42px;
-  line-height: 1;
-  color: #f3f4f6;
+  width: 120px;
+  height: auto;
+  display: block;
 }
 
 .footer-tagline {
@@ -766,7 +765,7 @@ main {
   }
 
   .footer-brand {
-    font-size: 30px;
+    width: 92px;
   }
 
   .footer-tagline {
@@ -821,7 +820,7 @@ main {
   text-align: center;
   padding: 24px;
   min-height: 100vh;
-  background: #0d0f17;
+  background: #161618;
   color: #ececf1;
 }
 
@@ -878,13 +877,13 @@ main {
 
 .pricing-page {
   min-height: 100vh;
-  background: #0d0f17;
+  background: #161618;
   color: #ececf1;
   display: flex;
   flex-direction: column;
   align-items: center;
   text-align: center;
-  padding: 72px 24px 48px;
+  padding: 52px 24px 42px;
   box-sizing: border-box;
   position: relative;
 }
@@ -895,7 +894,7 @@ main {
   right: 22px;
   color: #b6bac5;
   text-decoration: none;
-  font-size: 36px;
+  font-size: 28px;
   line-height: 1;
   font-weight: 300;
 }
@@ -906,44 +905,56 @@ main {
 
 .pricing-brand {
   margin: 0;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 52px;
-  color: #f3f4f6;
+  width: 145px;
+  height: auto;
+  display: block;
 }
 
 .pricing-title {
   margin: 70px 0 0;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 60px;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-size: 40px;
   line-height: 1;
   font-weight: 500;
   color: #f3f4f6;
+  width: fit-content;
+  max-width: 100%;
+  white-space: nowrap;
+  align-self: center;
 }
 
 .pricing-subtitle {
   margin: 14px 0 0;
-  font-size: 36px;
+  font-size: 16px;
   line-height: 1.4;
   color: #cfd3df;
 }
 
 .pricing-grid {
-  width: min(1300px, 100%);
-  margin-top: 78px;
+  width: 1156px;
+  max-width: 100%;
+  margin-top: 58px;
   display: grid;
-  grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 48px;
-  align-items: end;
+  grid-template-columns: repeat(3, 348px);
+  gap: 56px;
+  justify-content: center;
+  align-items: start;
 }
 
 .pricing-card {
+  width: 348px;
+  height: 543px;
   border: 1px solid #8f95a4;
   border-radius: 18px;
-  background: #0d0f17;
+  background: #161618;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
   overflow: hidden;
+}
+
+.pricing-card:not(.pricing-card--highlighted) {
+  margin-top: 46px;
 }
 
 .pricing-card--highlighted {
@@ -952,18 +963,18 @@ main {
 
 .pricing-top-badge {
   margin: 0;
-  min-height: 48px;
+  height: 46px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: #f1f1f1;
   color: #23252b;
-  font-size: 30px;
+  font-size: 16px;
   line-height: 1;
 }
 
 .pricing-card-body {
-  padding: 20px 24px 18px;
+  padding: 12px 14px 14px;
   display: flex;
   flex-direction: column;
   flex: 1;
@@ -974,19 +985,19 @@ main {
   background: #e8e8e8;
   color: #555b66;
   border-radius: 10px;
-  padding: 8px 16px;
-  font-size: 27px;
+  padding: 6px 10px;
+  font-size: 14px;
   line-height: 1;
 }
 
 .pricing-head {
-  margin-top: 18px;
+  margin-top: 12px;
 }
 
 .pricing-head h2 {
   margin: 0;
   font-family: Georgia, 'Times New Roman', serif;
-  font-size: 66px;
+  font-size: 52px;
   font-weight: 500;
   line-height: 1;
   color: #f3f4f6;
@@ -1002,32 +1013,32 @@ main {
 }
 
 .pricing-price strong {
-  font-size: 49px;
+  font-size: 42px;
   line-height: 1;
 }
 
 .pricing-price span {
-  font-size: 35px;
+  font-size: 30px;
   line-height: 1;
   color: #d1d5db;
 }
 
 .pricing-feature-list {
   list-style: none;
-  margin: 28px 0 0;
+  margin: 18px 0 0;
   padding: 0;
   display: flex;
   flex-direction: column;
-  gap: 14px;
+  gap: 10px;
   text-align: left;
 }
 
 .pricing-feature-list li {
   color: #d8dbe2;
-  font-size: 35px;
+  font-size: 16px;
   line-height: 1.24;
   position: relative;
-  padding-left: 28px;
+  padding-left: 16px;
 }
 
 .pricing-feature-list li::before {
@@ -1044,19 +1055,19 @@ main {
   justify-content: center;
   align-items: center;
   width: fit-content;
-  margin: 36px auto 0;
-  padding: 14px 40px;
+  margin: auto auto 0;
+  padding: 10px 26px;
   border-radius: 999px;
   background: #ffffff;
   color: #111827;
-  font-size: 40px;
+  font-size: 17px;
   font-weight: 600;
 }
 
 .pricing-note {
-  margin: 42px 0 0;
+  margin: 30px 0 0;
   color: #cfd3df;
-  font-size: 30px;
+  font-size: 14px;
 }
 
 .api-status-card {
@@ -1085,7 +1096,7 @@ main {
   max-height: 260px;
   overflow: auto;
   text-align: left;
-  background: #0d0f17;
+  background: #161618;
   border-radius: 10px;
   padding: 12px;
   box-sizing: border-box;
@@ -1106,7 +1117,7 @@ main {
 
 .quiz-page {
   min-height: 100vh;
-  background: #0d0f17;
+  background: #161618;
   color: #ececf1;
   display: flex;
   flex-direction: column;
@@ -1117,9 +1128,9 @@ main {
 
 .quiz-brand {
   margin: 0;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 58px;
-  letter-spacing: 0.02em;
+  width: 145px;
+  height: 29px;
+  display: block;
 }
 
 .quiz-progress {
@@ -1138,10 +1149,13 @@ main {
 
 .quiz-intro {
   margin: 42px 0 0;
-  letter-spacing: 0.11em;
-  font-size: 14px;
-  line-height: 1.3;
-  max-width: 680px;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  letter-spacing: 0.1em;
+  font-size: 16px;
+  line-height: 1.4;
+  max-width: 426px;
+  width: 100%;
+  align-self: center;
   text-align: center;
   color: #d1d5db;
 }
@@ -1154,12 +1168,15 @@ main {
 
 .quiz-question {
   margin: 54px 0 0;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 58px;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-size: 40px;
   font-weight: 400;
-  line-height: 1.06;
-  letter-spacing: -0.02em;
+  line-height: 1;
+  letter-spacing: 0;
   color: #f3f4f6;
+  max-width: 426px;
+  width: 100%;
+  align-self: center;
   text-align: left;
 }
 
@@ -1167,7 +1184,8 @@ main {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  width: 100%;
+  width: min(426px, 100%);
+  align-self: center;
   margin-top: 30px;
 }
 
@@ -1189,15 +1207,19 @@ main {
 
 .quiz-actions {
   display: flex;
+  width: min(426px, 100%);
+  align-self: center;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
   margin-top: 52px;
 }
 
 .quiz-actions .btn {
   border: 0;
   cursor: pointer;
-  min-width: 230px;
+  min-width: 0;
+  width: calc(50% - 8px);
   padding: 15px 24px;
   border-radius: 999px;
   font-size: 17px;
@@ -1228,7 +1250,7 @@ main {
   }
 
   .pricing-brand {
-    font-size: 34px;
+    width: 128px;
   }
 
   .pricing-close {
@@ -1301,7 +1323,8 @@ main {
   }
 
   .quiz-brand {
-    font-size: 40px;
+    width: 145px;
+    height: 29px;
   }
 
   .quiz-progress {
@@ -1316,18 +1339,19 @@ main {
 
   .quiz-intro {
     margin-top: 30px;
-    font-size: 12px;
-    letter-spacing: 1.2px;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    line-height: 1.4;
   }
 
   .quiz-question {
     margin-top: 32px;
-    font-size: 40px;
+    font-size: 32px;
     text-align: left;
   }
 
   .quiz-options {
-    width: 100%;
+    width: min(426px, 100%);
     margin-top: 22px;
     gap: 12px;
   }
@@ -1339,14 +1363,16 @@ main {
   }
 
   .quiz-actions {
+    width: min(426px, 100%);
+    align-self: center;
     margin-top: 30px;
-    gap: 14px;
+    gap: 12px;
     justify-content: space-between;
   }
 
   .quiz-actions .btn {
     min-width: 0;
-    width: calc(50% - 7px);
+    width: calc(50% - 6px);
     padding: 12px 8px;
     font-size: 16px;
   }

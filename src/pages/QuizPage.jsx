@@ -1,6 +1,7 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
+import capsuleLogo from '../assets/CAPSULE.svg'
 
 const QUIZ_STORAGE_KEY = 'quizAnswers'
 
@@ -154,7 +155,7 @@ function QuizPage() {
 
   return (
     <section className="quiz-page">
-      <p className="quiz-brand">CAPSULE</p>
+      <img className="quiz-brand" src={capsuleLogo} alt="CAPSULE" />
 
       <div className="quiz-card">
         <div className="quiz-progress" aria-hidden="true">

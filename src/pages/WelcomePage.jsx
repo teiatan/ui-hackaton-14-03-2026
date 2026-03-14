@@ -183,7 +183,7 @@ function WelcomePage() {
 
       <footer className="landing-footer" aria-label="Footer">
         <div className="footer-brand-block">
-          <p className="footer-brand">CAPSULE</p>
+          <img className="footer-brand" src={capsuleLogo} alt="CAPSULE" />
           <p className="footer-tagline">Your AI-powered personal stylist</p>
         </div>
 
