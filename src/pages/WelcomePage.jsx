@@ -1,6 +1,10 @@
 import { useState } from 'react'
 import { Link } from 'react-router-dom'
 import capsuleLogo from '../assets/CAPSULE.svg'
+import featureImage1 from '../assets/image 1.jpg'
+import featureImage2 from '../assets/image 2.jpg'
+import featureImage3 from '../assets/image 3.jpg'
+import featureImage4 from '../assets/image 4.jpg'
 
 function WelcomePage() {
   const [openFaqIndex, setOpenFaqIndex] = useState(2)
@@ -71,25 +75,25 @@ function WelcomePage() {
         <h2>What Capsule does</h2>
         <div className="features-grid">
           <article className="feature-card">
-            <div className="feature-media" aria-hidden="true"></div>
+            <img className="feature-media" src={featureImage1} alt="Style Quiz" />
             <h3>Style Quiz</h3>
             <p>Understands your taste in 6 questions</p>
           </article>
 
           <article className="feature-card">
-            <div className="feature-media" aria-hidden="true"></div>
+            <img className="feature-media" src={featureImage2} alt="AI Capsule" />
             <h3>AI Capsule</h3>
             <p>Generates 6–12 outfits tailored to you</p>
           </article>
 
           <article className="feature-card">
-            <div className="feature-media" aria-hidden="true"></div>
+            <img className="feature-media" src={featureImage3} alt="Brand Picks" />
             <h3>Brand Picks</h3>
             <p>Real products matched to your budget</p>
           </article>
 
           <article className="feature-card">
-            <div className="feature-media" aria-hidden="true"></div>
+            <img className="feature-media" src={featureImage4} alt="Lookbook PDF" />
             <h3>Lookbook PDF</h3>
             <p>Save and share your capsule</p>
           </article>
