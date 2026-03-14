@@ -1,3 +1,4 @@
+/* eslint-disable react-hooks/set-state-in-effect */
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
@@ -133,6 +134,7 @@ function QuizPage() {
 
   const goBack = () => {
     if (currentIndex === 0) {
+      navigate('/')
       return
     }
 
@@ -140,13 +142,14 @@ function QuizPage() {
   }
 
   return (
-    <section className="page">
-      <h1>Квіз</h1>
+    <section className="quiz-page">
+      <p className="quiz-brand">CAPSULE</p>
+
       <div className="quiz-card">
-        <p className="quiz-progress">
-          Питання {currentIndex + 1} з {QUIZ_QUESTIONS.length}
+        <p className="quiz-intro">
+          {currentIndex + 1} of {QUIZ_QUESTIONS.length} questions
         </p>
-        <h2>{activeQuestion.question}</h2>
+        <h1 className="quiz-question">{activeQuestion.question}</h1>
         <div className="quiz-options">
           {activeQuestion.options.map((option) => (
             <button
@@ -155,7 +158,8 @@ function QuizPage() {
               className={`option-btn${selectedAnswer === option ? ' active' : ''}`}
               onClick={() => selectAnswer(option)}
             >
-              {option}
+              <span className="option-dot" aria-hidden="true"></span>
+              <span>{option}</span>
             </button>
           ))}
         </div>
@@ -164,9 +168,8 @@ function QuizPage() {
             type="button"
             className="btn secondary"
             onClick={goBack}
-            disabled={currentIndex === 0}
           >
-            Назад
+            Back
           </button>
           <button
             type="button"
@@ -174,7 +177,7 @@ function QuizPage() {
             onClick={goNext}
             disabled={!selectedAnswer}
           >
-            {isLastQuestion ? 'Завершити' : 'Далі'}
+            {isLastQuestion ? 'Finish' : 'Next'}
           </button>
         </div>
       </div>
