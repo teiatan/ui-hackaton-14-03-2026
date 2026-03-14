@@ -35,5 +35,5 @@ export const PAGES = [
   },
 ]
 
-export const FAL_TEXT_TO_IMAGE = 'fal-ai/flux/schnell'
-export const FAL_IMAGE_TO_IMAGE = 'fal-ai/flux/dev/image-to-image'
+export const FAL_TEXT_TO_IMAGE = 'fal-ai/nano-banana-2'
+export const FAL_IMAGE_TO_IMAGE = 'fal-ai/nano-banana-2/edit'

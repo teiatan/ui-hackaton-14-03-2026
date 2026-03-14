@@ -4,8 +4,6 @@ import { useLocation, useNavigate } from 'react-router-dom'
 import { QUIZ_STORAGE_KEY } from '../../src2/config/constants'
 import capsuleLogo from '../assets/CAPSULE.svg'
 
-const QUIZ_STORAGE_KEY = 'quizAnswers'
-
 const QUIZ_QUESTIONS = [
   {
     question: 'What’s your gender?',

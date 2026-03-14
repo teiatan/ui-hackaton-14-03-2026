@@ -67,10 +67,11 @@ export function ChatInterface({ onImagesGenerated }) {
         const prompt = buildImg2ImgPrompt(userMessage.content)
         const result = await fal.subscribe(FAL_IMAGE_TO_IMAGE, {
           input: {
-            image_url: uploadedUrl,
+            image_urls: [uploadedUrl],
             prompt,
             num_images: 3,
-            strength: 0.95,
+            aspect_ratio: '3:4',
+            limit_generations: false,
           },
           logs: true,
         })
@@ -80,8 +81,9 @@ export function ChatInterface({ onImagesGenerated }) {
         const result = await fal.subscribe(FAL_TEXT_TO_IMAGE, {
           input: {
             prompt,
-            image_size: 'portrait_4_3',
             num_images: 3,
+            aspect_ratio: '3:4',
+            limit_generations: false,
           },
           logs: true,
         })
