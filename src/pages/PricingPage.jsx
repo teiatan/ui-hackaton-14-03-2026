@@ -1,33 +1,81 @@
 import { Link } from 'react-router-dom'
 
 function PricingPage() {
+  const plans = [
+    {
+      title: 'Weekly',
+      price: '$4,99',
+      period: '/year',
+      saveBadge: '',
+      topBadge: '',
+      highlighted: false,
+    },
+    {
+      title: 'Monthly',
+      price: '$11,99',
+      period: '/year',
+      saveBadge: 'Save 23%',
+      topBadge: 'Best value',
+      highlighted: true,
+    },
+    {
+      title: 'Yearly',
+      price: '$79,99',
+      period: '/year',
+      saveBadge: 'Save 45%',
+      topBadge: '',
+      highlighted: false,
+    },
+  ]
+
+  const features = [
+    'Unlimited capsule generation',
+    'AI stylist chat',
+    'Brand picks matched to budget',
+    'PDF lookbook export',
+    'Full quiz personalization',
+  ]
+
   return (
     <section className="pricing-page">
-      <h1 className="pricing-title">Choose your Capsule plan</h1>
-      <p className="pricing-subtitle">Pick the subscription that fits your rhythm</p>
+      <p className="pricing-brand">CAPSULE</p>
+      <h1 className="pricing-title">Choose your plan</h1>
+      <p className="pricing-subtitle">Unlock your personal AI stylist</p>
 
       <div className="pricing-grid">
-        <div className="pricing-card">
-          <p className="pricing-label">тижнева підписка</p>
-          <Link className="pricing-buy-btn" to="/page-4">
-            купити
-          </Link>
-        </div>
+        {plans.map((plan) => (
+          <article
+            key={plan.title}
+            className={`pricing-card${plan.highlighted ? ' pricing-card--highlighted' : ''}`}
+          >
+            {plan.topBadge && <p className="pricing-top-badge">{plan.topBadge}</p>}
 
-        <div className="pricing-card">
-          <p className="pricing-label">місячна підписка</p>
-          <Link className="pricing-buy-btn" to="/page-4">
-            купити
-          </Link>
-        </div>
+            <div className="pricing-card-body">
+              {plan.saveBadge && <p className="pricing-save-badge">{plan.saveBadge}</p>}
 
-        <div className="pricing-card">
-          <p className="pricing-label">річна підписка</p>
-          <Link className="pricing-buy-btn" to="/page-4">
-            купити
-          </Link>
-        </div>
+              <div className="pricing-head">
+                <h2>{plan.title}</h2>
+                <p className="pricing-price">
+                  <strong>{plan.price}</strong>
+                  <span>{plan.period}</span>
+                </p>
+              </div>
+
+              <ul className="pricing-feature-list" aria-label={`${plan.title} plan features`}>
+                {features.map((feature) => (
+                  <li key={`${plan.title}-${feature}`}>{feature}</li>
+                ))}
+              </ul>
+
+              <Link className="pricing-buy-btn" to="/page-4">
+                Get started
+              </Link>
+            </div>
+          </article>
+        ))}
       </div>
+
+      <p className="pricing-note">All plans include the same features. Pay less when you commit longer.</p>
     </section>
   )
 }

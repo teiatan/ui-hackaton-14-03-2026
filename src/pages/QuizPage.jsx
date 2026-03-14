@@ -120,6 +120,7 @@ function QuizPage() {
   const activeQuestion = QUIZ_QUESTIONS[currentIndex]
   const selectedAnswer = answers[currentIndex]?.answer || ''
   const isLastQuestion = currentIndex === QUIZ_QUESTIONS.length - 1
+  const progressPercent = ((currentIndex + 1) / QUIZ_QUESTIONS.length) * 100
 
   const selectAnswer = (answer) => {
     setAnswers((prevAnswers) =>
@@ -156,9 +157,11 @@ function QuizPage() {
       <p className="quiz-brand">CAPSULE</p>
 
       <div className="quiz-card">
-        <p className="quiz-intro">
-          {currentIndex + 1} of {QUIZ_QUESTIONS.length} questions
-        </p>
+        <div className="quiz-progress" aria-hidden="true">
+          <span style={{ width: `${progressPercent}%` }}></span>
+        </div>
+        <p className="quiz-progress-count">{currentIndex + 1} of {QUIZ_QUESTIONS.length}</p>
+        <p className="quiz-intro">ANSWER 6 QUESTIONS SO WE CAN GET TO KNOW YOU BETTER</p>
         <h1 className="quiz-question">{activeQuestion.question}</h1>
         <div className="quiz-options">
           {activeQuestion.options.map((option) => (
@@ -168,8 +171,7 @@ function QuizPage() {
               className={`option-btn${selectedAnswer === option ? ' active' : ''}`}
               onClick={() => selectAnswer(option)}
             >
-              <span className="option-dot" aria-hidden="true"></span>
-              <span>{option}</span>
+              {option}
             </button>
           ))}
         </div>
@@ -179,7 +181,7 @@ function QuizPage() {
             className="btn secondary"
             onClick={goBack}
           >
-            Back
+            ← Back
           </button>
           <button
             type="button"
@@ -187,7 +189,7 @@ function QuizPage() {
             onClick={goNext}
             disabled={!selectedAnswer}
           >
-            {isLastQuestion ? 'Finish' : 'Next'}
+            {isLastQuestion ? 'Finish →' : 'Continue →'}
           </button>
         </div>
       </div>
