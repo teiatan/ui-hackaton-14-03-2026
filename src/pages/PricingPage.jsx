@@ -38,6 +38,10 @@ function PricingPage() {
 
   return (
     <section className="pricing-page">
+      <Link className="pricing-close" to="/" aria-label="Go to homepage">
+        ×
+      </Link>
+
       <p className="pricing-brand">CAPSULE</p>
       <h1 className="pricing-title">Choose your plan</h1>
       <p className="pricing-subtitle">Unlock your personal AI stylist</p>

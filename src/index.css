@@ -886,6 +886,22 @@ main {
   text-align: center;
   padding: 72px 24px 48px;
   box-sizing: border-box;
+  position: relative;
+}
+
+.pricing-close {
+  position: absolute;
+  top: 18px;
+  right: 22px;
+  color: #b6bac5;
+  text-decoration: none;
+  font-size: 36px;
+  line-height: 1;
+  font-weight: 300;
+}
+
+.pricing-close:hover {
+  color: #e5e7eb;
 }
 
 .pricing-brand {
@@ -1213,6 +1229,12 @@ main {
 
   .pricing-brand {
     font-size: 34px;
+  }
+
+  .pricing-close {
+    top: 12px;
+    right: 14px;
+    font-size: 28px;
   }
 
   .pricing-grid {
