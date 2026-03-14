@@ -75,7 +75,7 @@ export function ChatInterface({ onImagesGenerated }) {
           },
           logs: true,
         })
-        imageUrls = (result.data?.images ?? []).map((img) => img.url).filter(Boolean)
+        imageUrls = (result.data?.images ?? []).map((img) => img.url).filter(Boolean).slice(0, 3)
       } else {
         const prompt = buildStylePrompt(userMessage.content)
         const result = await fal.subscribe(FAL_TEXT_TO_IMAGE, {
@@ -87,7 +87,7 @@ export function ChatInterface({ onImagesGenerated }) {
           },
           logs: true,
         })
-        imageUrls = (result.data?.images ?? []).map((img) => img.url).filter(Boolean)
+        imageUrls = (result.data?.images ?? []).map((img) => img.url).filter(Boolean).slice(0, 3)
       }
 
       onImagesGenerated?.(imageUrls, userMessage.content)
