@@ -508,10 +508,9 @@ main {
 
 .footer-brand {
   margin: 0;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 42px;
-  line-height: 1;
-  color: #f3f4f6;
+  width: 120px;
+  height: auto;
+  display: block;
 }
 
 .footer-tagline {
@@ -766,7 +765,7 @@ main {
   }
 
   .footer-brand {
-    font-size: 30px;
+    width: 92px;
   }
 
   .footer-tagline {
@@ -906,9 +905,9 @@ main {
 
 .pricing-brand {
   margin: 0;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 52px;
-  color: #f3f4f6;
+  width: 180px;
+  height: auto;
+  display: block;
 }
 
 .pricing-title {
@@ -1117,9 +1116,9 @@ main {
 
 .quiz-brand {
   margin: 0;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 58px;
-  letter-spacing: 0.02em;
+  width: 145px;
+  height: 29px;
+  display: block;
 }
 
 .quiz-progress {
@@ -1138,10 +1137,13 @@ main {
 
 .quiz-intro {
   margin: 42px 0 0;
-  letter-spacing: 0.11em;
-  font-size: 14px;
-  line-height: 1.3;
-  max-width: 680px;
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  letter-spacing: 0.1em;
+  font-size: 16px;
+  line-height: 1.4;
+  max-width: 426px;
+  width: 100%;
+  align-self: center;
   text-align: center;
   color: #d1d5db;
 }
@@ -1154,12 +1156,15 @@ main {
 
 .quiz-question {
   margin: 54px 0 0;
-  font-family: Georgia, 'Times New Roman', serif;
-  font-size: 58px;
+  font-family: 'Playfair Display', Georgia, 'Times New Roman', serif;
+  font-size: 40px;
   font-weight: 400;
-  line-height: 1.06;
-  letter-spacing: -0.02em;
+  line-height: 1;
+  letter-spacing: 0;
   color: #f3f4f6;
+  max-width: 426px;
+  width: 100%;
+  align-self: center;
   text-align: left;
 }
 
@@ -1167,7 +1172,8 @@ main {
   display: flex;
   flex-direction: column;
   gap: 16px;
-  width: 100%;
+  width: min(426px, 100%);
+  align-self: center;
   margin-top: 30px;
 }
 
@@ -1189,15 +1195,19 @@ main {
 
 .quiz-actions {
   display: flex;
+  width: min(426px, 100%);
+  align-self: center;
   justify-content: space-between;
   align-items: center;
+  gap: 16px;
   margin-top: 52px;
 }
 
 .quiz-actions .btn {
   border: 0;
   cursor: pointer;
-  min-width: 230px;
+  min-width: 0;
+  width: calc(50% - 8px);
   padding: 15px 24px;
   border-radius: 999px;
   font-size: 17px;
@@ -1228,7 +1238,7 @@ main {
   }
 
   .pricing-brand {
-    font-size: 34px;
+    width: 128px;
   }
 
   .pricing-close {
@@ -1301,7 +1311,8 @@ main {
   }
 
   .quiz-brand {
-    font-size: 40px;
+    width: 145px;
+    height: 29px;
   }
 
   .quiz-progress {
@@ -1316,18 +1327,19 @@ main {
 
   .quiz-intro {
     margin-top: 30px;
-    font-size: 12px;
-    letter-spacing: 1.2px;
+    font-size: 16px;
+    letter-spacing: 0.1em;
+    line-height: 1.4;
   }
 
   .quiz-question {
     margin-top: 32px;
-    font-size: 40px;
+    font-size: 32px;
     text-align: left;
   }
 
   .quiz-options {
-    width: 100%;
+    width: min(426px, 100%);
     margin-top: 22px;
     gap: 12px;
   }
@@ -1339,14 +1351,16 @@ main {
   }
 
   .quiz-actions {
+    width: min(426px, 100%);
+    align-self: center;
     margin-top: 30px;
-    gap: 14px;
+    gap: 12px;
     justify-content: space-between;
   }
 
   .quiz-actions .btn {
     min-width: 0;
-    width: calc(50% - 7px);
+    width: calc(50% - 6px);
     padding: 12px 8px;
     font-size: 16px;
   }
