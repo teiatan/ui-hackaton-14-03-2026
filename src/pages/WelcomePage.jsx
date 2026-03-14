@@ -144,9 +144,9 @@ function WelcomePage() {
             </p>
 
             <div className="stylist-gallery" aria-hidden="true">
-              <span></span>
-              <span></span>
-              <span></span>
+              <img src={featureImage1} alt="" />
+              <img src={featureImage2} alt="" />
+              <img src={featureImage3} alt="" />
             </div>
 
             <p className="stylist-generated">3 outfits generated</p>

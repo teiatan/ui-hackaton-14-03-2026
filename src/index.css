@@ -376,11 +376,11 @@ main {
   width: min(520px, 100%);
 }
 
-.stylist-gallery span {
+.stylist-gallery img {
   width: 100%;
   aspect-ratio: 1 / 1;
   border-radius: 18px;
-  background: #adafb4;
+  object-fit: cover;
 }
 
 .stylist-generated {
@@ -706,7 +706,7 @@ main {
     gap: 10px;
   }
 
-  .stylist-gallery span {
+  .stylist-gallery img {
     border-radius: 10px;
   }
 
