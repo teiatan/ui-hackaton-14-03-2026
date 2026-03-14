@@ -5,6 +5,15 @@ body {
   color: #ececf1;
 }
 
+/* Product pages (chat, dashboard) — чорний фон */
+body:has(.product-page) {
+  background: #000;
+}
+main.product-page {
+  background: #000;
+  max-width: none;
+}
+
 #root,
 main {
   min-height: 100vh;

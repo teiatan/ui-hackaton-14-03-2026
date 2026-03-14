@@ -12,7 +12,6 @@ export function ChatInterface({ onImagesGenerated }) {
   const [input, setInput] = useState('')
   const [isGenerating, setIsGenerating] = useState(false)
   const [userPhoto, setUserPhoto] = useState(null)
-  const [isDragOver, setIsDragOver] = useState(false)
   const [photoPreviewUrl, setPhotoPreviewUrl] = useState(null)
 
   const handlePhotoSelect = useCallback((file) => {
@@ -23,7 +22,6 @@ export function ChatInterface({ onImagesGenerated }) {
   const handleDrop = useCallback(
     (e) => {
       e.preventDefault()
-      setIsDragOver(false)
       const file = e.dataTransfer?.files?.[0]
       handlePhotoSelect(file)
     },
@@ -32,12 +30,10 @@ export function ChatInterface({ onImagesGenerated }) {
 
   const handleDragOver = useCallback((e) => {
     e.preventDefault()
-    setIsDragOver(true)
   }, [])
 
   const handleDragLeave = useCallback((e) => {
     e.preventDefault()
-    setIsDragOver(false)
   }, [])
 
   const handleRemovePhoto = useCallback(() => {
@@ -58,7 +54,7 @@ export function ChatInterface({ onImagesGenerated }) {
 
     const loadingMessage = {
       role: 'assistant',
-      content: photoToUpload ? 'Generating your look on your photo...' : 'Generating your look...',
+      content: photoToUpload ? 'Generating your look on your photo ' : 'Generating your look...',
       isLoading: true,
     }
     setMessages((prev) => [...prev, loadingMessage])
@@ -74,7 +70,7 @@ export function ChatInterface({ onImagesGenerated }) {
             image_url: uploadedUrl,
             prompt,
             num_images: 3,
-            strength: 0.85,
+            strength: 0.95,
           },
           logs: true,
         })
@@ -93,6 +89,18 @@ export function ChatInterface({ onImagesGenerated }) {
       }
 
       onImagesGenerated?.(imageUrls, userMessage.content)
+
+      // Preload images before hiding loading
+      await Promise.all(
+        imageUrls.map(
+          (url) =>
+            new Promise((resolve) => {
+              const img = new Image()
+              img.onload = img.onerror = resolve
+              img.src = url
+            })
+        )
+      )
 
       setMessages((prev) =>
         prev.map((msg) =>
@@ -138,28 +146,43 @@ export function ChatInterface({ onImagesGenerated }) {
 
   return (
     <div className="chat">
-      <div className="chat-messages">
-        {messages.map((msg, i) => (
-          <ChatMessage key={i} msg={msg} />
-        ))}
+      <div className="chat-messages-wrap">
+        <div
+          className="chat-messages"
+          {...(!userPhoto && {
+            onDrop: handleDrop,
+            onDragOver: handleDragOver,
+            onDragLeave: handleDragLeave,
+          })}
+        >
+          {messages.map((msg, i) => (
+            <ChatMessage key={i} msg={msg} />
+          ))}
+        </div>
       </div>
 
-      <div className="chat-input-section">
-        <ChatDropzone
-          userPhoto={userPhoto}
-          photoPreviewUrl={photoPreviewUrl}
-          isDragOver={isDragOver}
-          onDrop={handleDrop}
-          onDragOver={handleDragOver}
-          onDragLeave={handleDragLeave}
-          onPhotoSelect={handlePhotoSelect}
-          onRemovePhoto={handleRemovePhoto}
-        />
+      <div
+        className="chat-input-section"
+        {...(!userPhoto && {
+          onDrop: handleDrop,
+          onDragOver: handleDragOver,
+          onDragLeave: handleDragLeave,
+        })}
+      >
+        {userPhoto && (
+          <ChatDropzone
+            userPhoto={userPhoto}
+            photoPreviewUrl={photoPreviewUrl}
+            onRemovePhoto={handleRemovePhoto}
+          />
+        )}
         <ChatInput
           input={input}
           onInputChange={setInput}
           onSubmit={handleSubmit}
           isGenerating={isGenerating}
+          onPhotoSelect={handlePhotoSelect}
+          hasPhoto={!!userPhoto}
         />
       </div>
     </div>

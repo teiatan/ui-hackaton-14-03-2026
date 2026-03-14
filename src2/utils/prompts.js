@@ -1,9 +1,9 @@
-const DEFAULT_PROMPT = `ROLE: You are an elite AI Fashion Stylist. Preserve the user's identity 100% - no face/body changes. Only change clothing and accessories. Same person, same pose, same background.`
+const DEFAULT_PROMPT = "ROLE: Elite AI Fashion Stylist. CRITICAL CONSTRAINTS: Preserve exact face, identity, hair, skin tone, body shape, proportions, pose, hands, lighting, and background 100% untouched. TASK: Seamlessly replace ONLY clothing/accessories with [INSERT NEW CLOTHING]. EXECUTION: Ensure hyper-realistic fabric textures, natural draping mapped perfectly to original body curves, accurate cast shadows onto original skin/environment, and flawless boundary blending where new garments meet skin.";
 
 export function buildStylePrompt(userInput) {
-  return `${DEFAULT_PROMPT} ${userInput}`
+  return `${userInput} ${DEFAULT_PROMPT}`
 }
 
 export function buildImg2ImgPrompt(userInput) {
-  return `${DEFAULT_PROMPT} ${userInput}`
+  return `${userInput} ${DEFAULT_PROMPT}`
 }

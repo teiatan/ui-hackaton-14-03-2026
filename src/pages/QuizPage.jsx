@@ -1,8 +1,7 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 import { useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router-dom'
-
-const QUIZ_STORAGE_KEY = 'quizAnswers'
+import { QUIZ_STORAGE_KEY } from '../../src2/config/constants'
 
 const QUIZ_QUESTIONS = [
   {

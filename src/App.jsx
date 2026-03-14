@@ -1,4 +1,4 @@
-import { Navigate, Route, Routes } from 'react-router-dom'
+import { Navigate, Route, Routes, useLocation } from 'react-router-dom'
 import PricingPage from './pages/PricingPage'
 import QuizPage from './pages/QuizPage'
 import WelcomePage from './pages/WelcomePage'
@@ -8,8 +8,11 @@ import '../src2/index.css'
 const QUIZ_ROUTE = '/quiz'
 
 function App() {
+  const location = useLocation()
+  const isProductPage = location.pathname === '/page-4'
+
   return (
-    <main>
+    <main className={isProductPage ? 'product-page' : ''}>
       <Routes>
         <Route path="/" element={<WelcomePage />} />
         <Route path={QUIZ_ROUTE} element={<QuizPage />} />

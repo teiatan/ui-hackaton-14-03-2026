@@ -1,5 +1,25 @@
+import { useState, useCallback, useEffect } from 'react'
+import { createPortal } from 'react-dom'
+
 export function Gallery({ generatedImages }) {
   const items = [...(generatedImages || [])].reverse()
+  const [previewItem, setPreviewItem] = useState(null)
+
+  const closePreview = useCallback(() => setPreviewItem(null), [])
+
+  useEffect(() => {
+    const handleEscape = (e) => {
+      if (e.key === 'Escape') closePreview()
+    }
+    if (previewItem) {
+      document.addEventListener('keydown', handleEscape)
+      document.body.style.overflow = 'hidden'
+    }
+    return () => {
+      document.removeEventListener('keydown', handleEscape)
+      document.body.style.overflow = ''
+    }
+  }, [previewItem, closePreview])
 
   if (items.length === 0) {
     return (
@@ -22,18 +42,39 @@ export function Gallery({ generatedImages }) {
       </div>
       <div className="dashboard-grid">
         {items.map((item, i) => (
-          <a
+          <button
             key={`${item.url}-${i}`}
-            href={item.url}
-            target="_blank"
-            rel="noopener noreferrer"
+            type="button"
             className="dashboard-card"
+            onClick={() => setPreviewItem(item)}
           >
             <img src={item.url} alt={item.prompt || 'Generated look'} />
             {item.prompt && <span className="dashboard-card-prompt">{item.prompt}</span>}
-          </a>
+          </button>
         ))}
       </div>
+      {previewItem &&
+        createPortal(
+          <div className="chat-image-preview" onClick={closePreview} role="presentation">
+            <button
+              type="button"
+              className="chat-image-preview-close"
+              onClick={closePreview}
+              aria-label="Close"
+            >
+              ×
+            </button>
+            <img
+              src={previewItem.url}
+              alt={previewItem.prompt || 'Preview'}
+              onClick={(e) => e.stopPropagation()}
+            />
+            {previewItem.prompt && (
+              <p className="chat-image-preview-prompt">{previewItem.prompt}</p>
+            )}
+          </div>,
+          document.body
+        )}
     </div>
   )
 }

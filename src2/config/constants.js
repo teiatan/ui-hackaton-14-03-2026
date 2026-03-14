@@ -1,5 +1,6 @@
 export const STORAGE_KEY = 'ai-studio-generated-images'
 export const CHAT_STORAGE_KEY = 'capsule-chat-history'
+export const QUIZ_STORAGE_KEY = 'quizAnswers'
 
 export const PAGES = [
   {
