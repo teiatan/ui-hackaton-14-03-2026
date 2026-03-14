@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 
-const QUIZ_STORAGE_KEY = 'styleQuizAnswers'
+const QUIZ_STORAGE_KEY = 'quizAnswers'
 
 const QUIZ_QUESTIONS = [
   {
