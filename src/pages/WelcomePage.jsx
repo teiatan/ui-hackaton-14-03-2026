@@ -10,7 +10,7 @@ function WelcomePage() {
           <a href="#how-it-works">How it works</a>
           <a href="#">Why Capsule</a>
         </nav>
-        <Link className="landing-top-button" to="/quiz">
+        <Link className="landing-top-button" to="/quiz" state={{ forceStart: true }}>
           Start Quiz
         </Link>
       </header>
@@ -21,7 +21,7 @@ function WelcomePage() {
         <p className="landing-subtitle">
           Answer questions — get a personalized lookbook in seconds
         </p>
-        <Link className="landing-cta" to="/quiz">
+        <Link className="landing-cta" to="/quiz" state={{ forceStart: true }}>
           Start Quiz
         </Link>
       </div>

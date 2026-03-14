@@ -1,6 +1,6 @@
 /* eslint-disable react-hooks/set-state-in-effect */
 import { useEffect, useState } from 'react'
-import { useNavigate } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const QUIZ_STORAGE_KEY = 'quizAnswers'
 
@@ -54,11 +54,21 @@ const createInitialAnswers = () =>
   }))
 
 function QuizPage() {
+  const location = useLocation()
   const navigate = useNavigate()
   const [answers, setAnswers] = useState(() => createInitialAnswers())
   const [currentIndex, setCurrentIndex] = useState(0)
+  const forceStart = location.state?.forceStart === true
 
   useEffect(() => {
+    if (forceStart) {
+      const initialAnswers = createInitialAnswers()
+      setAnswers(initialAnswers)
+      setCurrentIndex(0)
+      localStorage.setItem(QUIZ_STORAGE_KEY, JSON.stringify(initialAnswers))
+      return
+    }
+
     const savedAnswers = localStorage.getItem(QUIZ_STORAGE_KEY)
 
     if (!savedAnswers) {
@@ -101,7 +111,7 @@ function QuizPage() {
     } catch {
       localStorage.setItem(QUIZ_STORAGE_KEY, JSON.stringify(createInitialAnswers()))
     }
-  }, [navigate])
+  }, [forceStart, navigate])
 
   useEffect(() => {
     localStorage.setItem(QUIZ_STORAGE_KEY, JSON.stringify(answers))
